@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light">
     <meta name="theme-color" content="#fcfbf7">
-    <meta name="description" content="Kasia i Michał zapraszają na przyjęcie weselne 5 czerwca 2027 roku w Costa Ponente w Mondello, Palermo. Potwierdź swoją obecność do końca kwietnia.">
+    <meta name="description" content="Zaproszenie Kasi i Michała na sycylijskie wesele, z informacjami o transporcie, noclegach i planie dnia.">
     <meta name="robots" content="index,follow">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pl_PL">
-    <meta property="og:site_name" content="Kasia i Michał — Sycylia 2027">
-    <meta property="og:title" content="Kasia i Michał — do zobaczenia na Sycylii">
-    <meta property="og:description" content="Przyjęcie weselne · 5 czerwca 2027 · Costa Ponente, Mondello, Palermo">
+    <meta property="og:site_name" content="Kasia i Michał — Sycylia">
+    <meta property="og:title" content="Kasia i Michał — będzie wesele!">
+    <meta property="og:description" content="Wszystko, co warto wiedzieć przed wspólnym świętowaniem na Sycylii.">
     <meta property="og:url" content="https://kasiamichal.pl/">
     <meta property="og:image" content="https://kasiamichal.pl/assets/nad-morzem.webp">
     <meta property="og:image:alt" content="Akwarelowy portret Kasi i Michała nad sycylijskim morzem">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kasia i Michał — do zobaczenia na Sycylii">
-    <meta name="twitter:description" content="Przyjęcie weselne · 5 czerwca 2027 · Costa Ponente, Mondello, Palermo">
+    <meta name="twitter:title" content="Kasia i Michał — będzie wesele!">
+    <meta name="twitter:description" content="Wszystko, co warto wiedzieć przed wspólnym świętowaniem na Sycylii.">
     <meta name="twitter:image" content="https://kasiamichal.pl/assets/nad-morzem.webp">
     <link rel="canonical" href="https://kasiamichal.pl/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='3' y='3' width='58' height='58' rx='4' fill='%23fcfbf7' stroke='%233f6795' stroke-width='3'/%3E%3Cpath d='M32 9 55 32 32 55 9 32 32 9Z' fill='none' stroke='%239dbfe4' stroke-width='2'/%3E%3Cpath d='M32 20 44 32 32 44 20 32 32 20Z' fill='%23f4cb21' stroke='%233f6795' stroke-width='2'/%3E%3C/svg%3E">
     <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='3' y='3' width='58' height='58' rx='4' fill='%23fcfbf7' stroke='%233f6795' stroke-width='3'/%3E%3Cpath d='M32 9 55 32 32 55 9 32 32 9Z' fill='none' stroke='%239dbfe4' stroke-width='2'/%3E%3Cpath d='M32 20 44 32 32 44 20 32 32 20Z' fill='%23f4cb21' stroke='%233f6795' stroke-width='2'/%3E%3C/svg%3E">
-    <title>Kasia i Michał — do zobaczenia na Sycylii</title>
+    <title>Kasia i Michał — będzie wesele!</title>
 
     <script>
       document.documentElement.classList.add('js');
@@ -175,20 +175,41 @@
         position: relative;
         z-index: 2;
         display: grid;
-        width: min(100%, 34rem);
+        width: min(100%, 38rem);
         justify-items: center;
-        gap: clamp(1.25rem, 4vh, 2rem);
+        gap: clamp(0.65rem, 2vh, 1rem);
         text-align: center;
       }
 
-      .intro__title {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        clip-path: inset(50%);
+      .intro__copy {
+        display: grid;
+        justify-items: center;
+        gap: 0.25rem;
+        transition: opacity 240ms ease, transform 320ms ease;
+      }
+
+      .intro__names {
+        margin: 0;
+        color: var(--cobalt);
+        font-family: "Segoe Print", "Bradley Hand", "Apple Chancery", cursive;
+        font-size: clamp(2.2rem, 6vw, 3.5rem);
+        font-weight: 400;
+        letter-spacing: -0.06em;
+        line-height: 1.18;
+      }
+
+      .intro__names em {
+        padding-inline: 0.12em;
+        font-weight: 400;
+      }
+
+      .intro__message {
+        max-width: 28rem;
+        margin: 0;
+        color: var(--ink-soft);
+        font-family: var(--serif);
+        font-size: clamp(1rem, 2.5vw, 1.15rem);
+        line-height: 1.5;
       }
 
       .eyebrow {
@@ -214,11 +235,13 @@
         place-items: center;
         perspective: 50rem;
         transform-origin: center;
-        transition: transform 650ms cubic-bezier(0.2, 0.75, 0.25, 1);
+        filter: drop-shadow(0 1rem 1.1rem rgb(36 64 122 / 12%));
+        transition: transform 650ms cubic-bezier(0.2, 0.75, 0.25, 1), filter 650ms ease;
       }
 
       .envelope__back {
         position: absolute;
+        z-index: 0;
         inset: 11% 3% 3%;
         border: 1px solid #d5cba9;
         background:
@@ -231,10 +254,10 @@
       .envelope__card {
         position: absolute;
         z-index: 1;
-        top: 9%;
+        top: 15%;
         display: grid;
         width: 76%;
-        height: 78%;
+        height: 68%;
         align-content: center;
         justify-items: center;
         gap: 0.65rem;
@@ -242,6 +265,8 @@
         border: 1px solid var(--rule);
         background: var(--paper-white);
         box-shadow: 0 0.5rem 1.25rem rgb(36 64 122 / 8%);
+        opacity: 0;
+        transform: translateY(10%) scale(0.96);
       }
 
       .envelope__card::before {
@@ -264,7 +289,7 @@
       }
 
       .envelope__card strong {
-        color: var(--ink);
+        color: var(--cobalt);
         font-family: var(--serif);
         font-size: clamp(1.2rem, 4vw, 1.65rem);
         font-weight: 400;
@@ -273,20 +298,22 @@
       .envelope__card small {
         color: var(--ink-soft);
         font-size: 0.75rem;
+        text-align: center;
       }
 
       .envelope__flap {
         position: absolute;
-        z-index: 3;
+        z-index: 4;
         inset: 11% 3% auto;
         height: 48%;
         transform-origin: 50% 0;
         clip-path: polygon(0 0, 100% 0, 50% 100%);
         background:
-          linear-gradient(135deg, rgb(255 255 255 / 54%), transparent 50%),
+          linear-gradient(135deg, rgb(255 255 255 / 68%), transparent 55%),
           #e7deca;
         backface-visibility: hidden;
-        transition: transform 480ms cubic-bezier(0.25, 0.75, 0.3, 1);
+        transform-style: preserve-3d;
+        transition: transform 560ms cubic-bezier(0.2, 0.72, 0.24, 1);
       }
 
       .envelope__pocket {
@@ -326,7 +353,7 @@
 
       .envelope__seal {
         position: absolute;
-        z-index: 4;
+        z-index: 5;
         top: 42%;
         left: 50%;
         display: grid;
@@ -460,14 +487,14 @@
       }
 
       .intro__actions {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
         justify-content: center;
-        gap: 0.7rem;
+        justify-items: center;
+        gap: 0.25rem;
       }
 
       .intro__actions .button {
-        min-width: 14rem;
+        min-width: min(18rem, 78vw);
       }
 
       .button {
@@ -515,17 +542,18 @@
       }
 
       .intro.is-opening {
-        animation: intro-fade 500ms ease 1320ms both;
+        animation: intro-fade 420ms ease 1450ms both;
       }
 
       .intro.is-opening .envelope__flap {
+        z-index: 1;
         transform: rotateX(180deg);
-        transition-duration: 620ms;
+        transition-duration: 560ms;
       }
 
       .intro.is-opening .envelope__card {
-        z-index: 5;
-        animation: invitation-emerge 1.05s 480ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+        z-index: 6;
+        animation: invitation-emerge 900ms 560ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
       }
 
       .intro.is-opening .envelope__seal {
@@ -539,13 +567,19 @@
       }
 
       .intro.is-opening .envelope {
-        transform: translateY(0.35rem);
+        filter: drop-shadow(0 1.4rem 1.3rem rgb(36 64 122 / 18%));
+        transform: translateY(0.35rem) scale(0.98);
+      }
+
+      .intro.is-opening .intro__copy {
+        transform: translateY(-0.45rem);
+        opacity: 0;
       }
 
       .intro.is-opening .intro__ornament,
       .intro.is-opening .intro__actions {
         opacity: 0;
-        transition: opacity 380ms ease 1s;
+        transition: opacity 300ms ease 900ms;
       }
 
       @keyframes intro-fade {
@@ -557,17 +591,17 @@
 
       @keyframes invitation-emerge {
         0% {
-          transform: translateY(0) scale(1);
-          opacity: 1;
+          transform: translateY(10%) scale(0.96);
+          opacity: 0;
         }
 
-        72% {
-          transform: translateY(-105%) scale(1.08);
+        68% {
+          transform: translateY(-95%) scale(1.04);
           opacity: 1;
         }
 
         100% {
-          transform: translateY(-145%) scale(1.12);
+          transform: translateY(-125%) scale(1.08);
           opacity: 0;
         }
       }
@@ -599,30 +633,15 @@
       .brand {
         display: inline-flex;
         align-items: center;
-        gap: 0.75rem;
         color: var(--ink);
         text-decoration: none;
       }
 
-      .brand__mark {
-        display: grid;
-        width: 2.45rem;
-        aspect-ratio: 1;
-        place-items: center;
-        padding: 0.12rem;
-        border: 1px solid var(--cobalt);
-        background: var(--paper-white);
-      }
-
-      .brand__mark svg {
-        width: 100%;
-        height: 100%;
-      }
-
       .brand__name {
         font-family: var(--serif);
-        font-size: 1.2rem;
+        font-size: 1.32rem;
         letter-spacing: -0.035em;
+        white-space: nowrap;
       }
 
       .site-nav {
@@ -630,7 +649,7 @@
         left: 50%;
         display: flex;
         align-items: center;
-        gap: clamp(0.15rem, 1.1vw, 0.75rem);
+        gap: clamp(0.1rem, 0.55vw, 0.4rem);
         transform: translateX(-50%);
         border: 1px solid rgb(212 172 49 / 65%);
         border-radius: 999px;
@@ -644,9 +663,9 @@
         align-items: center;
         justify-content: center;
         border-radius: 999px;
-        padding-inline: clamp(0.75rem, 1.6vw, 1.25rem);
+        padding-inline: clamp(0.6rem, 1.1vw, 0.95rem);
         color: var(--ink-soft);
-        font-size: 0.88rem;
+        font-size: 0.82rem;
         font-weight: 500;
         text-decoration: none;
         transition: background-color 160ms ease, color 160ms ease;
@@ -986,11 +1005,327 @@
         color: var(--ink-soft);
       }
 
+      .countdown {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        width: min(100%, 38rem);
+        margin: 1.25rem auto 0;
+        border: 1px solid rgb(212 172 49 / 42%);
+        background: rgb(255 255 255 / 62%);
+      }
+
+      .countdown[hidden] {
+        display: none;
+      }
+
+      .countdown__unit {
+        display: grid;
+        justify-items: center;
+        gap: 0.05rem;
+        padding: 0.65rem 0.35rem;
+      }
+
+      .countdown__unit + .countdown__unit {
+        border-inline-start: 1px solid rgb(212 172 49 / 32%);
+      }
+
+      .countdown__value {
+        color: var(--cobalt-dark);
+        font-family: var(--serif);
+        font-size: clamp(1.25rem, 3.2vw, 1.85rem);
+        font-variant-numeric: tabular-nums;
+        line-height: 1.15;
+      }
+
+      .countdown__label {
+        color: var(--ink-soft);
+        font-size: 0.68rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .info-section {
+        scroll-margin-top: 6rem;
+      }
+
+      .info-section .section__head {
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .info-section .section__intro {
+        margin-inline: auto;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1rem, 2.4vw, 1.75rem);
+      }
+
+      .info-card {
+        position: relative;
+        min-height: 100%;
+        overflow: hidden;
+        border: 1px solid var(--rule);
+        padding: clamp(1.25rem, 2.5vw, 2rem);
+        background:
+          linear-gradient(135deg, transparent 0 94%, rgb(212 172 49 / 14%) 94% 95%, transparent 95%),
+          rgb(255 255 255 / 76%);
+        box-shadow: 0 0.6rem 1.6rem rgb(36 64 122 / 5%);
+      }
+
+      .info-card::before {
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 0.2rem;
+        background: linear-gradient(var(--lemon), var(--cobalt));
+        content: "";
+      }
+
+      .info-card::after {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 1.1rem;
+        aspect-ratio: 1;
+        border: 1px solid rgb(63 103 149 / 28%);
+        transform: rotate(45deg);
+        content: "";
+      }
+
+      .info-card h3 {
+        margin: 0 1.5rem 0.85rem 0;
+        color: var(--cobalt-dark);
+        font-family: var(--serif);
+        font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+        font-weight: 500;
+        line-height: 1.25;
+      }
+
+      .info-card h3::after {
+        display: block;
+        width: 3rem;
+        height: 1px;
+        margin-block-start: 0.65rem;
+        background: var(--lemon);
+        content: "";
+      }
+
+      .info-card p,
+      .info-card ul {
+        margin: 0;
+        color: var(--ink-soft);
+      }
+
+      .info-card ul {
+        padding-inline-start: 1.2rem;
+      }
+
+      .info-card li + li {
+        margin-top: 0.35rem;
+      }
+
+      .info-card a:not(.button) {
+        color: var(--cobalt-dark);
+        text-underline-offset: 0.18em;
+      }
+
+      .transport-options,
+      .hotel-list,
+      .gift-content {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .hotel-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-block-start: 1.5rem;
+      }
+
+      .hotel-list a {
+        display: block;
+        margin-top: 0.45rem;
+        font-weight: 650;
+      }
+
+      .event-timeline {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem 1.25rem;
+        max-width: 62rem;
+        margin-inline: auto;
+      }
+
+      .event-timeline__item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 5.75rem minmax(0, 1fr);
+        align-items: center;
+        gap: 1rem;
+        min-height: 5.25rem;
+        border: 1px solid var(--rule);
+        padding: 0.75rem 1rem;
+        background: rgb(255 255 255 / 76%);
+        box-shadow: 0 0.35rem 1rem rgb(36 64 122 / 4%);
+      }
+
+      .event-timeline__time {
+        display: grid;
+        min-height: 3.5rem;
+        place-items: center;
+        border-inline-end: 1px solid rgb(212 172 49 / 65%);
+        color: var(--cobalt);
+        font-family: var(--serif);
+        font-size: 1.35rem;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .event-timeline__title {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+        font-weight: 500;
+        line-height: 1.3;
+      }
+
+      .event-timeline__item:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        width: calc(50% - 0.625rem);
+        justify-self: center;
+      }
+
+      .wedding-notes {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1rem, 3vw, 2rem);
+        margin-block-start: clamp(2rem, 5vw, 4rem);
+      }
+
+      .contact-rsvp-title {
+        margin-block: 2rem 0.5rem;
+        font-family: var(--serif);
+        font-size: clamp(1.7rem, 3vw, 2.4rem);
+        font-weight: 400;
+      }
+
+      .wedding-note {
+        position: relative;
+        border: 1px solid var(--rule);
+        border-block-start: 2px solid var(--lemon);
+        padding: 1.25rem;
+        background: rgb(255 255 255 / 72%);
+      }
+
+      .wedding-note h3 {
+        margin: 0 0 0.5rem;
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+
+      .wedding-note p {
+        margin: 0;
+        color: var(--ink-soft);
+      }
+
+      .gift-account {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+        margin-block-start: 0.9rem;
+      }
+
+      .gift-account code {
+        border: 1px solid var(--rule);
+        padding: 0.45rem 0.65rem;
+        background: var(--paper-white);
+        color: var(--ink);
+        font-size: 1rem;
+        letter-spacing: 0.04em;
+      }
+
+      .copy-button {
+        min-height: 2.5rem;
+        border: 1px solid var(--cobalt);
+        padding-inline: 0.8rem;
+        background: transparent;
+        color: var(--cobalt-dark);
+        font: 650 0.82rem/1.2 var(--sans);
+        cursor: pointer;
+      }
+
+      .copy-button:hover {
+        background: var(--paper-blue);
+      }
+
+      .contact-groups {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-block-start: 1.5rem;
+      }
+
+      .contact-group {
+        border: 1px dashed var(--rule);
+        padding: 1rem;
+        background: rgb(255 255 255 / 55%);
+      }
+
+      .contact-group h3 {
+        margin: 0 0 0.35rem;
+        font-family: var(--serif);
+        font-size: 1.25rem;
+      }
+
+      .contact-group p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+      }
+
       .venue-grid {
         display: grid;
         grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
         align-items: center;
         gap: clamp(1.5rem, 5vw, 5rem);
+      }
+
+      #wedding-details {
+        position: relative;
+        margin-block-start: clamp(4rem, 8vw, 7rem);
+        border-block-start: 1px solid rgb(63 103 149 / 24%);
+        padding-block-start: clamp(3rem, 6vw, 5rem);
+      }
+
+      #wedding-details::before {
+        position: absolute;
+        top: -0.55rem;
+        left: 50%;
+        width: 1rem;
+        aspect-ratio: 1;
+        border: 1px solid var(--lemon);
+        background: var(--paper-blue);
+        transform: translateX(-50%) rotate(45deg);
+        content: "";
+      }
+
+      #wedding-details .section__head {
+        position: relative;
+        margin-block-end: clamp(2rem, 4vw, 3rem);
+        padding-block-end: 1.5rem;
+      }
+
+      #wedding-details .section__head::after {
+        position: absolute;
+        right: calc(50% - 3.5rem);
+        bottom: 0;
+        left: calc(50% - 3.5rem);
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--lemon), var(--cobalt), var(--lemon), transparent);
+        content: "";
       }
 
       .venue-grid__art {
@@ -1279,6 +1614,18 @@
           margin-top: 1.5rem;
         }
 
+        .info-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hotel-list {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .info-section {
+          scroll-margin-top: 7rem;
+        }
+
         #plan {
           padding-block-end: 6rem;
         }
@@ -1366,31 +1713,27 @@
           gap: 0.25rem;
         }
 
-        .brand {
-          gap: 0.45rem;
-        }
-
-        .brand__mark {
-          width: 2.1rem;
-        }
-
         .brand__name {
-          font-size: 1.02rem;
+          font-size: 1.08rem;
           white-space: nowrap;
         }
 
         .site-nav {
-          gap: 0.05rem;
+          gap: 0;
+          padding: 0.16rem;
         }
 
         .site-nav a {
-          min-height: 2.4rem;
-          padding-inline: 0.65rem;
-          font-size: 0.78rem;
+          min-width: 0;
+          min-height: 2.25rem;
+          flex: 1 1 auto;
+          padding-inline: clamp(0.28rem, 1.35vw, 0.48rem);
+          font-size: clamp(0.66rem, 2.25vw, 0.74rem);
+          white-space: nowrap;
         }
 
         .site-nav .site-nav__rsvp {
-          min-height: 2.4rem;
+          min-height: 2.25rem;
         }
 
         .hero__title {
@@ -1409,6 +1752,39 @@
         .event-row {
           grid-template-columns: minmax(0, 1fr);
           gap: 0.35rem;
+        }
+
+        .info-grid,
+        .wedding-notes,
+        .contact-groups {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .event-timeline {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .event-timeline__item {
+          grid-template-columns: 5.25rem minmax(0, 1fr);
+          gap: 0.65rem;
+        }
+
+        .event-timeline__item:last-child:nth-child(odd) {
+          grid-column: auto;
+          width: auto;
+          justify-self: stretch;
+        }
+
+        .event-timeline__time {
+          font-size: 1.1rem;
+        }
+
+        .countdown__unit {
+          padding-inline: 0.15rem;
+        }
+
+        .countdown__label {
+          font-size: 0.58rem;
         }
 
         .gallery {
@@ -1459,6 +1835,10 @@
           gap: 0.75rem;
         }
 
+        .intro__names {
+          font-size: clamp(2rem, 9vw, 2.8rem);
+        }
+
         .envelope {
           width: min(100%, 20rem);
         }
@@ -1477,7 +1857,6 @@
       }
 
       @media (forced-colors: active) {
-        .brand__mark,
         .envelope__back,
         .envelope__card,
         .envelope__seal,
@@ -1522,21 +1901,26 @@
 
   <body>
     <section class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
-      <h1 class="intro__title" id="intro-title">Zaproszenie ślubne Kasi i Michała</h1>
       <img class="intro__ornament intro__ornament--left" src="assets/palermo-venue-tile-corner.webp" alt="" aria-hidden="true">
       <img class="intro__ornament intro__ornament--right" src="assets/palermo-venue-lemon-corner.webp" alt="" aria-hidden="true">
       <img class="intro__ornament intro__ornament--bottom-left" src="assets/palermo-plan-corner.webp" alt="" aria-hidden="true">
       <img class="intro__ornament intro__ornament--bottom-right" src="assets/palermo-plan-corner-right.webp" alt="" aria-hidden="true">
       <div class="intro__inner">
+        <div class="intro__copy">
+          <p class="eyebrow">Zaproszenie ślubne</p>
+          <h1 class="intro__names" id="intro-title">Kasia <em>&amp;</em> Michał</h1>
+          <p class="intro__message">Mamy dla Was zaproszenie na wyjątkowe wspólne świętowanie.</p>
+        </div>
         <div class="envelope" aria-hidden="true">
           <div class="envelope__back"></div>
           <div class="envelope__card">
             <span>Zaproszenie</span>
             <strong>Kasia i Michał</strong>
+            <small>Z radością czekamy na wspólne świętowanie.</small>
           </div>
           <div class="envelope__pocket"></div>
           <div class="envelope__sender">
-            <span>Kasia i Michał</span>
+            <span>Dla Was, z miłością</span>
           </div>
           <div class="envelope__flap"></div>
           <div class="envelope__seal">
@@ -1555,21 +1939,14 @@
       <header class="site-header">
         <div class="site-header__inner">
           <a class="brand" href="#top">
-            <span class="brand__mark" aria-hidden="true">
-              <svg viewBox="0 0 48 48" fill="none">
-                <rect x=".5" y=".5" width="47" height="47" fill="#FCFBF7" stroke="#C1D8F0"/>
-                <path d="M24 0v48M0 24h48" stroke="#9DBFE4"/>
-                <path d="m24 5 7 7-7 7-7-7 7-7Zm0 24 7 7-7 7-7-7 7-7Zm-19-5 7-7 7 7-7 7-7-7Zm24 0 7-7 7 7-7 7-7-7Z" stroke="#3F6795"/>
-                <path d="m24 18 6 6-6 6-6-6 6-6Z" fill="#F7D45E" stroke="#3F6795"/>
-              </svg>
-            </span>
             <span class="brand__name">Kasia i Michał</span>
           </a>
           <nav class="site-nav" aria-label="Nawigacja główna">
-            <a href="#plan">Plan</a>
-            <a href="#miejsce">Miejsce</a>
+            <a href="#transport">Transport</a>
+            <a href="#noclegi">Noclegi</a>
+            <a href="#wesele">Wesele</a>
             <a href="#galeria">Galeria</a>
-            <a class="site-nav__rsvp" href="#rsvp">RSVP</a>
+            <a class="site-nav__rsvp" href="#kontakt">Kontakt</a>
           </nav>
         </div>
       </header>
@@ -1599,29 +1976,29 @@
             </figure>
           </div>
           <nav class="hero__links" aria-label="Szybkie linki">
-            <a class="hero__link" href="#plan">
+            <a class="hero__link" href="#transport">
               <span class="hero__link-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17M8 13h2m4 0h2m-8 3h2"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M2.5 14.5h19l-2-5.5a2 2 0 0 0-1.9-1.4H8.2a2 2 0 0 0-1.7.9L2.5 14.5Z"/><path d="M2.5 14.5v3h19v-3M6 17.5v2m12-2v2M7 11h10"/></svg>
               </span>
-              <span class="hero__link-label">Data i miejsce</span>
+              <span class="hero__link-label">Transport</span>
             </a>
-            <a class="hero__link" href="#miejsce">
+            <a class="hero__link" href="#noclegi">
               <span class="hero__link-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M3 19V9.5l9-6 9 6V19M2 19h20M6 19v-5h12v5"/><path d="M9 10h.01M15 10h.01"/></svg>
               </span>
-              <span class="hero__link-label">Dojazd</span>
+              <span class="hero__link-label">Noclegi</span>
             </a>
-            <a class="hero__link" href="#galeria">
+            <a class="hero__link" href="#wesele">
               <span class="hero__link-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="m21 15-5-5L5 20"/></svg>
+                <svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6.5"/><circle cx="15" cy="12" r="6.5"/><path d="M8 12h8"/></svg>
               </span>
-              <span class="hero__link-label">Galeria</span>
+              <span class="hero__link-label">Wesele</span>
             </a>
-            <a class="hero__link" href="#rsvp">
+            <a class="hero__link" href="#kontakt">
               <span class="hero__link-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.3A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8.5 9.5c.7 2 2 3.3 4 4"/></svg>
               </span>
-              <span class="hero__link-label">Potwierdź obecność</span>
+              <span class="hero__link-label">Kontakt</span>
             </a>
           </nav>
         </section>
@@ -1646,7 +2023,14 @@
               <div class="scratch-card__details" id="scratch-details" role="group" aria-label="Szczegóły przyjęcia" aria-hidden="true" tabindex="-1" hidden>
                 <span class="scratch-card__eyebrow">Przyjęcie weselne</span>
                 <strong class="scratch-card__date"><time datetime="2027-06-05T19:00:00+02:00">5 czerwca 2027 · godz. 19:00</time></strong>
-                <span class="scratch-card__place">Costa Ponente · Mondello · Palermo</span>
+                <span class="scratch-card__place">Club Nautico Costa Ponente · Palermo</span>
+                <p class="countdown__caption">Do przyjęcia pozostało</p>
+                <div class="countdown" id="countdown" role="timer" aria-label="Odliczanie do przyjęcia" aria-live="off" hidden>
+                  <div class="countdown__unit"><span class="countdown__value" id="countdown-days">0</span><span class="countdown__label">dni</span></div>
+                  <div class="countdown__unit"><span class="countdown__value" id="countdown-hours">00</span><span class="countdown__label">godzin</span></div>
+                  <div class="countdown__unit"><span class="countdown__value" id="countdown-minutes">00</span><span class="countdown__label">minut</span></div>
+                  <div class="countdown__unit"><span class="countdown__value" id="countdown-seconds">00</span><span class="countdown__label">sekund</span></div>
+                </div>
               </div>
               <canvas class="scratch-card__cover" id="scratch-cover" aria-hidden="true"></canvas>
             </div>
@@ -1655,7 +2039,67 @@
           </div>
         </section>
 
-        <section class="section venue-section" id="miejsce" aria-label="Miejsce przyjęcia">
+        <section class="section section--blue info-section" id="transport" aria-labelledby="transport-title">
+          <div class="container">
+            <div class="section__head">
+              <p class="eyebrow">Przyjedźcie wygodnie</p>
+              <h2 class="section__title" id="transport-title">Transport na Sycylii</h2>
+              <p class="section__intro">Kilka wskazówek, które ułatwią Wam podróż do Palermo i na przyjęcie.</p>
+            </div>
+            <div class="info-grid">
+              <article class="info-card">
+                <h3>Loty na Sycylię</h3>
+                <p>Bezpośrednie loty do Palermo oferują linie Ryanair i Wizz Air z lotniska Warszawa-Modlin. Ryanair realizuje także połączenia z Krakowa, Poznania, Wrocławia i Gdańska.</p>
+              </article>
+              <article class="info-card">
+                <h3>Z lotniska do Palermo</h3>
+                <ul>
+                  <li><strong>Pociąg:</strong> bezpośrednio do centrum, podróż trwa około 30 minut.</li>
+                  <li><strong>Taksówka:</strong> do centrum lub na miejsce przyjęcia jedzie około 30 minut, zależnie od ruchu. Warto zarezerwować przejazd wcześniej.</li>
+                  <li><strong>Wynajem samochodu:</strong> wygodny do zwiedzania wyspy; parkowanie w centrum Palermo bywa wymagające.</li>
+                </ul>
+              </article>
+              <article class="info-card">
+                <h3>Dojazd na przyjęcie</h3>
+                <p>Miejsce przyjęcia znajduje się około 10 km od centrum Palermo, w pobliżu plaży Mondello. Najłatwiej dotrzeć tam taksówką lub za pośrednictwem aplikacji transportowej.</p>
+              </article>
+              <article class="info-card">
+                <h3>Powrót po weselu</h3>
+                <p>Po przyjęciu będzie można wrócić taksówką do Palermo. Planujemy również autobus dla chętnych, który około godz. 2:00 odwiezie gości do centrum miasta. Szczegóły potwierdzimy bliżej terminu.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section info-section" id="noclegi" aria-labelledby="lodging-title">
+          <div class="container">
+            <div class="section__head">
+              <p class="eyebrow">Zaplanujcie pobyt</p>
+              <h2 class="section__title" id="lodging-title">Noclegi</h2>
+              <p class="section__intro">Możecie zatrzymać się w okolicy plaży Mondello lub w centrum Palermo. Noclegi w centrum są zazwyczaj korzystniejsze cenowo; po okolicy można poruszać się komunikacją miejską, taksówką lub wynajętym samochodem bądź skuterem.</p>
+            </div>
+            <div class="hotel-list">
+              <article class="info-card">
+                <h3>Blisko miejsca przyjęcia</h3>
+                <p><a href="https://latorrehotel.it/" target="_blank" rel="noopener noreferrer">Splendid Hotel La Torre</a></p>
+                <p><a href="https://unicohoteldarte.it/" target="_blank" rel="noopener noreferrer">Unìco — Boutique Hotel</a></p>
+                <p><a href="https://www.mondelloglamhotel.com/" target="_blank" rel="noopener noreferrer">Mondello Glam Hotel</a></p>
+              </article>
+              <article class="info-card">
+                <h3>Hotele w Palermo</h3>
+                <p>Przejrzyjcie dostępne noclegi w mieście i wybierzcie lokalizację odpowiednią do Waszych planów.</p>
+                <a href="https://www.booking.com/city/it/palermo.pl.html" target="_blank" rel="noopener noreferrer">Szukaj hoteli na Booking.com ↗</a>
+              </article>
+              <article class="info-card">
+                <h3>Mieszkania i domy</h3>
+                <p>Jeśli wolicie własną przestrzeń, sprawdźcie dostępne mieszkania i domy w Palermo.</p>
+                <a href="https://www.airbnb.pl/a/stays/Palermo--Sicily--Italy" target="_blank" rel="noopener noreferrer">Szukaj na Airbnb ↗</a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--blue info-section" id="wesele" aria-labelledby="wedding-title">
           <div class="container venue-grid">
             <div class="venue-grid__locked" id="venue-locked">
               <p class="eyebrow">Sycylia czeka</p>
@@ -1669,14 +2113,46 @@
               <img class="venue__tile" src="assets/palermo-venue-tile-corner.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
               <img class="venue__lemon" src="assets/palermo-venue-lemon-corner.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
               <p class="eyebrow">Palermo · Mondello</p>
-              <h2 class="section__title" id="venue-title">Costa Ponente</h2>
-              <p class="venue-address">Mondello, Palermo, Sycylia, Włochy</p>
-              <p class="venue-note">Przyjęcie odbędzie się nad sycylijskim wybrzeżem. Otwórz mapę, aby zaplanować dojazd.</p>
+              <h2 class="section__title" id="venue-title">Club Nautico Costa Ponente</h2>
+              <p class="venue-address">Via Giuseppe Pavone, 91<br>90151 Palermo PA, Italia</p>
+              <p class="venue-note">Strona miejsca: <a href="https://www.costaponente.it/" target="_blank" rel="noopener noreferrer">costaponente.it</a><br>Telefon: <a href="tel:+39091450427">+39 091 450427</a></p>
               <div class="venue__actions">
-                <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=Costa+Ponente%2C+Mondello%2C+Palermo%2C+Sicily" target="_blank" rel="noopener noreferrer">
+                <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=Club+Nautico+Costa+Ponente%2C+Via+Giuseppe+Pavone+91%2C+90151+Palermo+PA%2C+Italia" target="_blank" rel="noopener noreferrer">
                   Otwórz mapę <span aria-hidden="true">↗</span>
                 </a>
+                <a class="button button--quiet" href="https://www.costaponente.it/" target="_blank" rel="noopener noreferrer">Strona miejsca <span aria-hidden="true">↗</span></a>
               </div>
+            </div>
+          </div>
+
+          <div class="container" id="wedding-details" hidden>
+            <div class="section__head">
+              <p class="eyebrow">Wspólne świętowanie</p>
+              <h2 class="section__title" id="wedding-title">Plan przyjęcia</h2>
+              <p class="section__intro">Cieszymy się, że będziemy mogli przeżyć te chwile razem z Wami.</p>
+            </div>
+            <div class="event-timeline" aria-label="Harmonogram przyjęcia">
+              <div class="event-timeline__item"><time class="event-timeline__time" datetime="19:00">19:00</time><h3 class="event-timeline__title">Ceremonia</h3></div>
+              <div class="event-timeline__item"><time class="event-timeline__time" datetime="20:00">20:00</time><h3 class="event-timeline__title">Aperitif</h3></div>
+              <div class="event-timeline__item"><time class="event-timeline__time" datetime="21:00">21:00</time><h3 class="event-timeline__title">Live cooking buffet</h3></div>
+              <div class="event-timeline__item"><time class="event-timeline__time" datetime="21:30">21:30</time><h3 class="event-timeline__title">Pierwsze danie</h3></div>
+              <div class="event-timeline__item"><time class="event-timeline__time" datetime="22:30">22:30</time><h3 class="event-timeline__title">Drugie danie</h3></div>
+              <div class="event-timeline__item"><time class="event-timeline__time" datetime="00:00">00:00</time><h3 class="event-timeline__title">Tort weselny</h3></div>
+              <div class="event-timeline__item"><time class="event-timeline__time" datetime="02:00">02:00</time><h3 class="event-timeline__title">Zakończenie przyjęcia</h3></div>
+            </div>
+            <div class="wedding-notes">
+              <article class="wedding-note">
+                <h3>Ubiór</h3>
+                <p>Przyjęcie odbędzie się częściowo na trawniku. Paniom polecamy wygodne obuwie lub stabilne obcasy — bardzo wysokie szpilki mogą być mniej komfortowe.</p>
+              </article>
+              <article class="wedding-note">
+                <h3>Prezenty</h3>
+                <p>Wasza obecność jest dla nas najpiękniejszym prezentem. Ze względu na organizację wesela za granicą prosimy o niewręczanie prezentów rzeczowych, których nie będziemy mogli przewieźć do Polski. Jeśli zechcecie podarować nam coś od siebie, będzie nam miło, jeśli wesprzecie naszą podróż poślubną.</p>
+                <div class="gift-account">
+                  <code id="revolut-iban">LT843250019237973249</code>
+                  <button class="copy-button" type="button" id="copy-iban" aria-label="Skopiuj numer konta Revolut">Kopiuj numer konta</button>
+                </div>
+              </article>
             </div>
           </div>
         </section>
@@ -1703,11 +2179,23 @@
           </div>
         </section>
 
-        <section class="section" id="rsvp" aria-labelledby="rsvp-title">
+        <section class="section info-section" id="kontakt" aria-labelledby="rsvp-title">
           <div class="container rsvp">
             <div>
-              <p class="eyebrow">Będzie nam bardzo miło</p>
-              <h2 class="section__title" id="rsvp-title">Dajcie nam znać</h2>
+              <p class="eyebrow">Wymieńmy się wiadomościami</p>
+              <h2 class="section__title" id="rsvp-title">Kontakt</h2>
+              <p>Dołączcie do naszych grup WhatsApp, by wymieniać się informacjami, wspólnie planować pobyt i poznać innych gości przed weselem.</p>
+              <div class="contact-groups" aria-label="Grupy WhatsApp">
+                <article class="contact-group">
+                  <h3>Grupa w języku polskim</h3>
+                  <p>Link do grupy zostanie dodany, gdy będzie dostępny.</p>
+                </article>
+                <article class="contact-group">
+                  <h3>Group in English</h3>
+                  <p>The group link will be added when it is available.</p>
+                </article>
+              </div>
+              <h3 class="contact-rsvp-title">Potwierdźcie obecność</h3>
               <p class="rsvp__deadline">Prosimy o potwierdzenie obecności do końca kwietnia 2027 roku.</p>
               <p class="rsvp__hint">Wybierzcie kontakt. WhatsApp otworzy gotową wiadomość, którą można edytować przed wysłaniem.</p>
               <div class="rsvp__actions" aria-label="Potwierdź obecność przez WhatsApp">
@@ -1746,16 +2234,18 @@
         "@context": "https://schema.org",
         "@type": "Event",
         "name": "Przyjęcie weselne Kasi i Michała",
-        "description": "Przyjęcie weselne Kasi i Michała w Costa Ponente, Mondello, Palermo.",
+        "description": "Przyjęcie weselne Kasi i Michała w Club Nautico Costa Ponente w Palermo.",
         "startDate": "2027-06-05T19:00:00+02:00",
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "location": {
           "@type": "Place",
-          "name": "Costa Ponente",
+          "name": "Club Nautico Costa Ponente",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Mondello",
+            "streetAddress": "Via Giuseppe Pavone, 91",
+            "postalCode": "90151",
+            "addressLocality": "Palermo",
             "addressRegion": "Palermo",
             "addressCountry": "IT"
           }
@@ -1783,7 +2273,11 @@
         const calendarButton = document.getElementById('calendar-button');
         const heading = document.getElementById('hero-title');
         const notice = document.getElementById('notice');
+        const countdown = document.getElementById('countdown');
+        const weddingDetails = document.getElementById('wedding-details');
+        const copyIbanButton = document.getElementById('copy-iban');
         let noticeTimer;
+        let countdownTimer;
         const scratchContext = scratchCover.getContext('2d', { willReadFrequently: true });
         let isScratching = false;
         let previousPoint = null;
@@ -1854,11 +2348,37 @@
           document.getElementById('venue-locked').hidden = true;
           document.getElementById('venue-art').hidden = false;
           document.getElementById('venue-copy').hidden = false;
+          weddingDetails.hidden = false;
           calendarButton.hidden = false;
+          startCountdown();
           scratchReveal.setAttribute('aria-pressed', 'true');
           scratchReveal.hidden = true;
           scratchHint.textContent = 'Szczegóły przyjęcia są już widoczne na karcie.';
           if (returnFocus) scratchDetails.focus();
+        }
+
+        function startCountdown() {
+          const target = new Date('2027-06-05T19:00:00+02:00').getTime();
+          const update = () => {
+            const remainingSeconds = Math.max(0, Math.floor((target - Date.now()) / 1000));
+            const days = Math.floor(remainingSeconds / 86400);
+            const hours = Math.floor((remainingSeconds % 86400) / 3600);
+            const minutes = Math.floor((remainingSeconds % 3600) / 60);
+            const seconds = remainingSeconds % 60;
+
+            document.getElementById('countdown-days').textContent = String(days);
+            document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+            if (remainingSeconds === 0) {
+              window.clearInterval(countdownTimer);
+              countdown.setAttribute('aria-label', 'Przyjęcie już się rozpoczęło');
+            }
+          };
+
+          countdown.hidden = false;
+          update();
+          if (target > Date.now()) countdownTimer = window.setInterval(update, 1000);
         }
 
         function checkScratchCoverage(force = false) {
@@ -1952,7 +2472,7 @@
             shell.inert = false;
             heading.setAttribute('tabindex', '-1');
             heading.focus();
-          }, 1840);
+          }, 1900);
         }
 
         openButton.addEventListener('click', () => closeIntro(true));
@@ -1984,6 +2504,16 @@
           noticeTimer = window.setTimeout(() => notice.classList.remove('is-visible'), 4200);
         }
 
+        copyIbanButton.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(document.getElementById('revolut-iban').textContent.trim());
+            showNotice('Numer konta skopiowany.');
+          } catch (error) {
+            console.error('Nie udało się skopiować numeru konta Revolut.', error);
+            showNotice('Nie udało się skopiować numeru. Zaznacz go i skopiuj ręcznie.');
+          }
+        });
+
         calendarButton.addEventListener('click', () => {
           const now = new Date();
           const stamp = now.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
@@ -1998,7 +2528,7 @@
             `DTSTAMP:${stamp}`,
             'DTSTART;TZID=Europe/Rome:20270605T190000',
             'SUMMARY:Przyjęcie weselne Kasi i Michała',
-            'LOCATION:Costa Ponente\\, Mondello\\, Palermo\\, Włochy',
+            'LOCATION:Club Nautico Costa Ponente\\, Via Giuseppe Pavone 91\\, 90151 Palermo PA\\, Italia',
             'DESCRIPTION:Do zobaczenia na Sycylii!',
             'END:VEVENT',
             'END:VCALENDAR',

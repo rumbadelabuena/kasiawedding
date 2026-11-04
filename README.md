@@ -1,42 +1,76 @@
-# Kasia i Michał — invitation website
+# Kasia i Michał — wedding invitation
 
-A standalone, Polish-language wedding invitation built with static HTML, CSS, JavaScript, and local artwork in `assets/`.
+A standalone, Polish-language wedding invitation website for Kasia and Michał. It is a static site built with HTML, CSS, JavaScript, and locally stored artwork in `assets/`, maintained independently from the WeddingProject application.
 
-## Deployment
+## What the site includes
 
-This site is static and does not require a database, Supabase, server functions, or environment variables. The RSVP links open WhatsApp with a pre-filled message; guests send the message themselves.
+- Responsive invitation page, photo gallery, and Sicilian-inspired styling.
+- Animated envelope introduction and an interactive scratch-to-reveal card.
+- Date, venue, address, map, calendar download, countdown, and schedule shown after the guest reveals the details.
+- Travel guidance, accommodation recommendations, dress guidance, and gift information.
+- WhatsApp RSVP links with pre-filled messages. Guests review and send the message themselves; the site does not send messages or collect RSVPs.
+- Copy-to-clipboard support for the Revolut account number.
 
-### Deploy with Vercel
+The site has no database, authentication, server functions, analytics, or required API keys. No build step is required.
 
-1. Install the Vercel CLI and sign in:
+## Local preview
+
+From the project directory, start Python's static file server:
+
+```sh
+python -m http.server 8765
+```
+
+Open [http://localhost:8765/](http://localhost:8765/) in a browser. Stop the server with `Ctrl+C`.
+
+## Deploy to Vercel
+
+### Using the Vercel CLI
+
+1. Install the CLI and sign in:
 
    ```sh
    npm install --global vercel
    vercel login
    ```
 
-2. From this folder, create a preview deployment:
+2. From this directory, deploy a preview:
 
    ```sh
    vercel
    ```
 
-3. Deploy to production:
+3. Deploy to production when the preview is verified:
 
    ```sh
    vercel --prod
    ```
 
-There is no build command or output-directory setting: `index.html`, `vercel.json`, and `assets/` are served directly from this folder. Alternatively, put this folder in its own Git repository and import that repository into Vercel; do not use the WeddingProject repository.
+There is no build command or output-directory setting. Vercel serves `index.html`, `vercel.json`, and `assets/` directly.
 
-Before sharing the site, confirm that `kasiamichal.pl` is the intended public domain. If the site will use a different domain, update the canonical URL, Open Graph/Twitter URLs, and event JSON-LD URL in `index.html` to match it.
+### Using the GitHub repository
 
-## Local preview
+Import `rumbadelabuena/kasiawedding` as a new Vercel project. Keep the framework preset set to **Other** and leave the build command and output directory empty. Do not connect this project to the WeddingProject repository.
 
-From this folder, run:
+## Before publishing
 
-```sh
-python -m http.server 8765
-```
+Review the content in `index.html` and confirm all details are current:
 
-Then open `http://localhost:8765/`.
+- The event is listed for 5 June 2027 at 19:00 local Palermo time.
+- Venue: Club Nautico Costa Ponente, Via Giuseppe Pavone, 91, 90151 Palermo PA, Italia.
+- Confirm the Kasia and Michał WhatsApp phone numbers used by the RSVP links.
+- Add the Polish- and English-language WhatsApp group links when available; the page currently has placeholder text for these.
+- Confirm the Revolut account number and all travel, hotel, venue contact, and schedule information.
+- Review the event date and location with the scratch card closed and after it is revealed, to ensure the intended details are shown correctly.
+
+The HTML contains page metadata, Open Graph/Twitter URLs, and event structured data. If using a domain other than `kasiamichal.pl`, update the canonical URL, social preview URLs, and event URL in `index.html` to the actual public domain before publishing. Also verify the social preview image path and that the image is present in `assets/`.
+
+## Files
+
+- `index.html` — all page content, styles, structured event metadata, and client-side interactions.
+- `assets/` — invitation artwork, photos, and decorative images.
+- `vercel.json` — static hosting and response-header configuration.
+
+## Browser checks
+
+Before sharing a deployment, check the page at mobile and desktop widths. Verify the envelope intro and skip action, scratch interaction and reveal button, date/venue visibility, map and calendar links, WhatsApp RSVP links, and account-number copy action. The scratch reveal and clipboard action require a browser with JavaScript enabled; clipboard access may require HTTPS or localhost.
