@@ -5,7 +5,7 @@ A standalone, Polish- and English-language wedding invitation website for Kasia 
 ## What the site includes
 
 - Responsive invitation page, photo gallery, and Sicilian-inspired styling.
-- Animated envelope introduction and an interactive scratch-to-reveal card.
+- Responsive envelope introduction and an interactive scratch-to-reveal card; the intro remains available with reduced motion enabled.
 - Polish/English language switch in the header; the selected language is reflected in the page URL as `?lang=en`.
 - Decorative Sicilian-inspired ticket frame surrounding the scratch-to-reveal card.
 - Sicilian tile and olive artwork framing the wedding, gallery, and contact sections.
