@@ -622,17 +622,17 @@
       }
 
       .site-header__inner {
-        position: relative;
-        display: flex;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
         min-height: 4.7rem;
         align-items: center;
-        justify-content: flex-start;
         gap: 1rem;
       }
 
       .brand {
         display: inline-flex;
         align-items: center;
+        justify-self: start;
         color: var(--ink);
         text-decoration: none;
       }
@@ -644,17 +644,41 @@
         white-space: nowrap;
       }
 
+      .language-switch {
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: end;
+        min-width: 2.8rem;
+        min-height: 2.4rem;
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        padding-inline: 0.75rem;
+        background: var(--paper);
+        color: var(--cobalt-dark);
+        font: 700 0.75rem/1 var(--sans);
+        letter-spacing: 0.06em;
+        cursor: pointer;
+      }
+
+      .language-switch:hover {
+        border-color: var(--lemon);
+        background: var(--paper-blue);
+      }
+
       .site-nav {
-        position: absolute;
-        left: 50%;
+        grid-column: 2;
+        grid-row: 1;
         display: flex;
         align-items: center;
         gap: clamp(0.1rem, 0.55vw, 0.4rem);
-        transform: translateX(-50%);
         border: 1px solid rgb(212 172 49 / 65%);
         border-radius: 999px;
         padding: 0.22rem;
         background: var(--paper);
+      }
+
+      .site-nav-toggle {
+        display: none;
       }
 
       .site-nav a {
@@ -742,6 +766,58 @@
       #plan .scratch-card__hint,
       #plan .scratch-card__reveal {
         margin-inline: auto;
+      }
+
+      .scratch-ticket-frame {
+        position: relative;
+        width: min(100%, 38rem);
+        margin-inline: auto;
+        border: 1px solid rgb(63 103 149 / 27%);
+        padding: clamp(0.7rem, 2.4vw, 1.4rem);
+        background:
+          linear-gradient(45deg, rgb(63 103 149 / 3%) 25%, transparent 25% 75%, rgb(63 103 149 / 3%) 75%) 0 0 / 1rem 1rem,
+          rgb(255 255 255 / 28%);
+        box-shadow: 0 0.8rem 2rem rgb(36 64 122 / 5%);
+      }
+
+      .scratch-ticket-frame::before,
+      .scratch-ticket-frame::after {
+        position: absolute;
+        right: 1rem;
+        left: 1rem;
+        height: 0.65rem;
+        background:
+          radial-gradient(circle, var(--lemon) 1.5px, transparent 2px) center / 1rem 0.5rem repeat-x;
+        content: "";
+        pointer-events: none;
+      }
+
+      .scratch-ticket-frame::before {
+        top: -0.35rem;
+      }
+
+      .scratch-ticket-frame::after {
+        bottom: -0.35rem;
+      }
+
+      .scratch-ticket-frame__corner {
+        position: absolute;
+        z-index: 1;
+        top: 0.4rem;
+        width: 1.2rem;
+        aspect-ratio: 1;
+        border-color: var(--lemon);
+        border-style: solid;
+      }
+
+      .scratch-ticket-frame__corner--left {
+        left: 0.4rem;
+        border-width: 1px 0 0 1px;
+      }
+
+      .scratch-ticket-frame__corner--right {
+        right: 0.4rem;
+        border-width: 1px 1px 0 0;
       }
 
       #plan .scratch-card__hint,
@@ -931,6 +1007,82 @@
         background: var(--paper-blue);
       }
 
+      #wesele,
+      #galeria,
+      #kontakt {
+        isolation: isolate;
+        overflow: clip;
+      }
+
+      #wesele::before,
+      #wesele::after,
+      #galeria::before,
+      #galeria::after,
+      #kontakt::before,
+      #kontakt::after {
+        position: absolute;
+        z-index: 0;
+        width: clamp(6rem, 14vw, 11rem);
+        aspect-ratio: 1;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: "";
+        opacity: 0.62;
+        pointer-events: none;
+      }
+
+      #wesele::before {
+        top: 0.75rem;
+        left: 0;
+        background-image: url("assets/palermo-venue-tile-corner.webp");
+      }
+
+      #wesele::after {
+        right: 0;
+        bottom: 0.75rem;
+        background-image: url("assets/palermo-plan-corner-right.webp");
+      }
+
+      #galeria::before {
+        top: 0.75rem;
+        right: 0;
+        transform: scaleX(-1);
+        background-image: url("assets/palermo-venue-tile-corner.webp");
+      }
+
+      #galeria::after {
+        bottom: 0.75rem;
+        left: 0;
+        transform: scaleX(-1);
+        background-image: url("assets/palermo-plan-corner-right.webp");
+      }
+
+      #kontakt::before {
+        top: 0.75rem;
+        left: 0;
+        background-image: url("assets/palermo-venue-tile-corner.webp");
+      }
+
+      #kontakt::after {
+        right: 0;
+        bottom: 0.75rem;
+        background-image: url("assets/palermo-plan-corner-right.webp");
+      }
+
+      #wesele > .container,
+      #galeria > .container,
+      #kontakt > .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      #wesele .venue-grid__copy,
+      #wesele #wedding-details {
+        position: relative;
+        z-index: 1;
+      }
+
       .section__head {
         max-width: 42rem;
         margin-block-end: clamp(2rem, 4vw, 3.5rem);
@@ -970,12 +1122,19 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 2.3rem;
-        height: 3rem;
+        width: 2.7rem;
+        height: 2.8rem;
         transform: translate(-50%, -50%);
-        background: var(--paper-blue);
         object-fit: contain;
         pointer-events: none;
+      }
+
+      .hero__flourish .ribbon-rule__lemon {
+        background: var(--paper);
+      }
+
+      #plan .ribbon-rule__lemon {
+        background: var(--paper-blue);
       }
 
       .event-row {
@@ -1431,10 +1590,7 @@
       }
 
       .rsvp {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 15rem);
-        align-items: end;
-        gap: 2rem;
+        display: block;
       }
 
       .rsvp__deadline {
@@ -1456,47 +1612,6 @@
         margin: 0 0 0.8rem;
         color: var(--ink-soft);
         font-size: 0.9rem;
-      }
-
-      .rsvp__aside {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-        padding: 1.4rem 1.4rem 7rem;
-        border: 1px solid var(--rule);
-        background: var(--paper-white);
-        text-align: center;
-      }
-
-      .rsvp__aside-mark {
-        display: grid;
-        width: 2.6rem;
-        aspect-ratio: 1;
-        place-items: center;
-        margin: 0 auto 1rem;
-        border: 1px solid var(--cobalt);
-        padding: 0.12rem;
-        background: var(--paper-white);
-      }
-
-      .rsvp__aside-mark svg {
-        width: 100%;
-        height: 100%;
-      }
-
-      .rsvp__aside-olive {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: min(100%, 14rem);
-        object-fit: contain;
-        pointer-events: none;
-      }
-
-      .rsvp__aside p {
-        margin: 0;
-        color: var(--ink-soft);
-        font-family: var(--serif);
       }
 
       .site-footer {
@@ -1523,6 +1638,34 @@
         text-underline-offset: 0.18em;
       }
 
+      .site-footer__heart {
+        display: inline-grid;
+        width: 2rem;
+        height: 2rem;
+        place-items: center;
+        border-radius: 50%;
+        color: var(--cobalt);
+        text-decoration: none;
+        transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+      }
+
+      .site-footer__heart svg {
+        width: 1.15rem;
+        height: 1.15rem;
+        fill: currentColor;
+      }
+
+      .site-footer__heart:hover {
+        transform: scale(1.12);
+        background: var(--paper-blue);
+        color: #b94c55;
+      }
+
+      .site-footer__heart:focus-visible {
+        outline: 2px solid var(--cobalt);
+        outline-offset: 2px;
+      }
+
       .notice {
         position: fixed;
         z-index: 40;
@@ -1545,7 +1688,7 @@
         opacity: 1;
       }
 
-      @media (max-width: 760px) {
+      @media (max-width: 900px) {
         :root {
           --gutter: 1.25rem;
         }
@@ -1555,26 +1698,122 @@
         }
 
         .site-header__inner {
-          min-height: 0;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 0.2rem;
-          padding-block: 0.45rem;
+          min-height: 4.25rem;
+          grid-template-columns: minmax(2.8rem, 1fr) auto minmax(2.8rem, 1fr);
+          gap: 0.5rem;
+          padding-block: 0.55rem;
         }
 
         .brand {
+          grid-column: 2;
+          grid-row: 1;
+          justify-self: center;
+        }
+
+        .language-switch {
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: start;
+          flex: 0 0 auto;
+        }
+
+        .site-nav-toggle {
+          display: inline-flex;
+          min-height: 2.5rem;
+          align-items: center;
           justify-content: center;
+          gap: 0.45rem;
+          grid-column: 3;
+          grid-row: 1;
+          justify-self: end;
+          border: 1px solid rgb(212 172 49 / 70%);
+          border-radius: 999px;
+          padding: 0.4rem 0.8rem;
+          background: var(--paper);
+          color: var(--cobalt-dark);
+          font: 650 0.83rem/1 var(--sans);
+          cursor: pointer;
+        }
+
+        .site-nav-toggle__icon {
+          display: grid;
+          gap: 0.22rem;
+        }
+
+        .site-nav-toggle__icon span {
+          width: 1rem;
+          height: 1px;
+          background: currentColor;
+          transition: transform 160ms ease;
+        }
+
+        .site-nav-toggle[aria-expanded="true"] .site-nav-toggle__icon span:first-child {
+          transform: translateY(0.16rem) rotate(45deg);
+        }
+
+        .site-nav-toggle[aria-expanded="true"] .site-nav-toggle__icon span:last-child {
+          transform: translateY(-0.16rem) rotate(-45deg);
         }
 
         .site-nav {
-          position: static;
-          justify-content: center;
-          width: 100%;
+          position: absolute;
+          z-index: 2;
+          top: calc(100% - 0.15rem);
+          right: 0;
+          left: 0;
+          grid-column: 1 / -1;
+          grid-row: 2;
+          display: none;
+          align-items: stretch;
+          gap: 0.2rem;
           transform: none;
+          border: 1px solid var(--rule);
+          border-radius: 0.9rem;
+          padding: 0.45rem;
+          background: var(--paper);
+          box-shadow: 0 0.8rem 1.8rem rgb(36 64 122 / 12%);
+        }
+
+        .site-nav.is-open {
+          display: grid;
+        }
+
+        .site-nav a {
+          min-height: 2.75rem;
+          justify-content: flex-start;
+          border-radius: 0.55rem;
+          padding-inline: 0.85rem;
+          font-size: 0.9rem;
+        }
+
+        .site-nav .site-nav__rsvp {
+          justify-content: center;
         }
 
         .section {
           padding-block: 3rem;
+        }
+
+        #wesele::before,
+        #wesele::after,
+        #galeria::before,
+        #galeria::after,
+        #kontakt::before,
+        #kontakt::after {
+          width: clamp(4.5rem, 16vw, 7rem);
+          opacity: 0.42;
+        }
+
+        #wesele::before,
+        #galeria::before,
+        #kontakt::before {
+          top: 0.3rem;
+        }
+
+        #wesele::after,
+        #galeria::after,
+        #kontakt::after {
+          bottom: 0.3rem;
         }
 
         .hero {
@@ -1674,30 +1913,6 @@
           margin-block-end: 1.5rem;
         }
 
-        .rsvp {
-          grid-template-columns: minmax(0, 1fr);
-          align-items: start;
-          gap: 1rem;
-        }
-
-        .rsvp__aside {
-          width: 100%;
-          justify-self: stretch;
-          text-align: start;
-        }
-
-        .rsvp__aside-mark {
-          margin-inline: 0;
-        }
-
-        .rsvp__aside-olive {
-          margin-inline: 0;
-        }
-
-        .rsvp__aside {
-          padding-bottom: 5rem;
-        }
-
         .gallery {
           gap: 1rem;
         }
@@ -1716,24 +1931,6 @@
         .brand__name {
           font-size: 1.08rem;
           white-space: nowrap;
-        }
-
-        .site-nav {
-          gap: 0;
-          padding: 0.16rem;
-        }
-
-        .site-nav a {
-          min-width: 0;
-          min-height: 2.25rem;
-          flex: 1 1 auto;
-          padding-inline: clamp(0.28rem, 1.35vw, 0.48rem);
-          font-size: clamp(0.66rem, 2.25vw, 0.74rem);
-          white-space: nowrap;
-        }
-
-        .site-nav .site-nav__rsvp {
-          min-height: 2.25rem;
         }
 
         .hero__title {
@@ -1845,6 +2042,21 @@
 
       }
 
+      @media (max-width: 360px) {
+        .brand__name {
+          font-size: 0.96rem;
+        }
+
+        .site-nav-toggle {
+          gap: 0.3rem;
+          padding-inline: 0.55rem;
+        }
+
+        .site-nav-toggle__label {
+          font-size: 0.78rem;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -1861,10 +2073,6 @@
         .envelope__card,
         .envelope__seal,
         .scratch-card,
-        .rsvp__aside {
-          border: 1px solid CanvasText;
-        }
-
         .button {
           border: 1px solid ButtonText;
         }
@@ -1873,7 +2081,6 @@
       @media print {
         .site-header,
         .hero__actions,
-        .rsvp__aside,
         .site-footer a,
         .intro,
         .notice {
@@ -1920,7 +2127,7 @@
           </div>
           <div class="envelope__pocket"></div>
           <div class="envelope__sender">
-            <span>Dla Was, z miłością</span>
+            <span data-i18n="envelopeSender">Dla Was, z miłością</span>
           </div>
           <div class="envelope__flap"></div>
           <div class="envelope__seal">
@@ -1928,8 +2135,8 @@
           </div>
         </div>
         <div class="intro__actions">
-          <button class="button" type="button" id="open-invitation">Otwórz zaproszenie</button>
-          <button class="intro__skip" type="button" id="skip-intro">Pomiń animację</button>
+          <button class="button" type="button" id="open-invitation" data-i18n="openInvitation">Otwórz zaproszenie</button>
+            <button class="intro__skip" type="button" id="skip-intro" data-i18n="skipIntro">Pomiń animację</button>
         </div>
       </div>
     </section>
@@ -1941,7 +2148,12 @@
           <a class="brand" href="#top">
             <span class="brand__name">Kasia i Michał</span>
           </a>
-          <nav class="site-nav" aria-label="Nawigacja główna">
+          <button class="language-switch" id="language-switch" type="button" aria-label="Switch to English" lang="en">EN</button>
+          <button class="site-nav-toggle" id="site-nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false">
+            <span class="site-nav-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+            <span class="site-nav-toggle__label">Menu</span>
+          </button>
+          <nav class="site-nav" id="site-nav" aria-label="Nawigacja główna">
             <a href="#transport">Transport</a>
             <a href="#noclegi">Noclegi</a>
             <a href="#wesele">Wesele</a>
@@ -2019,6 +2231,9 @@
               </div>
             </div>
 
+            <div class="scratch-ticket-frame">
+              <span class="scratch-ticket-frame__corner scratch-ticket-frame__corner--left" aria-hidden="true"></span>
+              <span class="scratch-ticket-frame__corner scratch-ticket-frame__corner--right" aria-hidden="true"></span>
             <div class="scratch-card" id="scratch-card">
               <div class="scratch-card__details" id="scratch-details" role="group" aria-label="Szczegóły przyjęcia" aria-hidden="true" tabindex="-1" hidden>
                 <span class="scratch-card__eyebrow">Przyjęcie weselne</span>
@@ -2036,6 +2251,7 @@
             </div>
             <p class="scratch-card__hint" id="scratch-hint" role="status" aria-live="polite">Przesuń palcem lub kursorem po karcie, by odkryć szczegóły.</p>
             <button class="scratch-card__reveal" type="button" id="scratch-reveal" aria-controls="scratch-card" aria-pressed="false">Odkryj datę i miejsce</button>
+            </div>
           </div>
         </section>
 
@@ -2203,26 +2419,16 @@
                 <a class="button button--quiet" href="https://wa.me/48502644327?text=Cze%C5%9B%C4%87%20Michale%2C%20potwierdzamy%20obecno%C5%9B%C4%87%20na%20Waszym%20przyj%C4%99ciu%20weselnym%205%20czerwca%202027%20r.%20w%20Palermo.%20Do%20zobaczenia%21" target="_blank" rel="noopener noreferrer">Potwierdź · Michał <span aria-hidden="true">↗</span></a>
               </div>
             </div>
-            <aside class="rsvp__aside" aria-label="Pozdrowienia od pary">
-              <span class="rsvp__aside-mark" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none">
-                  <rect x=".5" y=".5" width="47" height="47" fill="#FCFBF7" stroke="#C1D8F0"/>
-                  <path d="M24 0v48M0 24h48" stroke="#9DBFE4"/>
-                  <path d="m24 5 7 7-7 7-7-7 7-7Zm0 24 7 7-7 7-7-7 7-7Zm-19-5 7-7 7 7-7 7-7-7Zm24 0 7-7 7 7-7 7-7-7Z" stroke="#3F6795"/>
-                  <path d="m24 18 6 6-6 6-6-6 6-6Z" fill="#F7D45E" stroke="#3F6795"/>
-                </svg>
-              </span>
-              <p>Do zobaczenia<br>na Sycylii!</p>
-              <img class="rsvp__aside-olive" src="assets/palermo-olive-sea.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
-            </aside>
           </div>
         </section>
       </main>
 
       <footer class="site-footer">
         <div class="container site-footer__inner">
-          <p>Kasia i Michał · Sycylia</p>
-          <a href="#top">Wróć na górę ↑</a>
+          <a class="site-footer__heart" id="footer-github-link" href="https://github.com/MedinaBytes" target="_blank" rel="noopener noreferrer" aria-label="Profil MedinaBytes na GitHubie">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8.5-5.2-8.5-12A4.8 4.8 0 0 1 12 6.1 4.8 4.8 0 0 1 20.5 9c0 6.8-8.5 12-8.5 12Z"/></svg>
+          </a>
+          <a class="site-footer__top-link" href="#top">Wróć na górę ↑</a>
         </div>
       </footer>
     </div>
@@ -2276,12 +2482,226 @@
         const countdown = document.getElementById('countdown');
         const weddingDetails = document.getElementById('wedding-details');
         const copyIbanButton = document.getElementById('copy-iban');
+        const languageSwitch = document.getElementById('language-switch');
+        const translations = [
+          ['.intro__copy .eyebrow', 'Zaproszenie ślubne', 'Wedding invitation'],
+          ['.intro__message', 'Mamy dla Was zaproszenie na wyjątkowe wspólne świętowanie.', 'We would love you to join us for a very special celebration.'],
+          ['.envelope__card > span', 'Zaproszenie', 'You are invited'],
+          ['.envelope__card strong', 'Kasia i Michał', 'Kasia and Michał'],
+          ['.envelope__card small', 'Z radością czekamy na wspólne świętowanie.', 'We cannot wait to celebrate with you.'],
+          ['.envelope__sender span', 'Dla Was, z miłością', 'For you, with love'],
+          ['#open-invitation', 'Otwórz zaproszenie', 'Open your invitation'],
+          ['#skip-intro', 'Pomiń animację', 'Skip animation'],
+          ['.skip-link', 'Przejdź do treści', 'Skip to content'],
+          ['.brand__name', 'Kasia i Michał', 'Kasia and Michał'],
+          ['.site-nav', 'Nawigacja główna', 'Main navigation', 'aria-label'],
+          ['.site-nav-toggle__label', 'Menu', 'Menu'],
+          ['.site-nav a[href="#transport"]', 'Dojazd', 'Travel'],
+          ['.site-nav a[href="#noclegi"]', 'Noclegi', 'Stay'],
+          ['.site-nav a[href="#wesele"]', 'Wesele', 'The wedding'],
+          ['.site-nav a[href="#galeria"]', 'Galeria', 'Gallery'],
+          ['.site-nav a[href="#kontakt"]', 'Kontakt', 'Contact'],
+          ['.hero__copy .eyebrow', 'Zaproszenie ślubne', 'Wedding invitation'],
+          ['.hero__tagline', 'Będzie wesele!', 'We are getting married!'],
+          ['.hero__intro', 'Zapraszamy na przyjęcie weselne w sercu słonecznej Sycylii. Będzie nam niezwykle miło świętować razem z Wami.', 'Join us for our wedding celebration in the heart of sunny Sicily. It would mean so much to celebrate with you.'],
+          ['.hero__actions > a', 'Odkryj datę i miejsce', 'Discover the date and place'],
+          ['#calendar-button', 'Dodaj do kalendarza', 'Add to calendar'],
+          ['.hero__art img', 'Akwarelowy portret Kasi i Michała nad morzem', 'Watercolour portrait of Kasia and Michał by the sea', 'alt'],
+          ['.hero__links', 'Szybkie linki', 'Quick links', 'aria-label'],
+          ['.hero__link[href="#noclegi"] .hero__link-label', 'Noclegi', 'Stay'],
+          ['.hero__link[href="#wesele"] .hero__link-label', 'Wesele', 'Wedding'],
+          ['.hero__link[href="#kontakt"] .hero__link-label', 'Kontakt', 'Contact'],
+          ['.hero__link[href="#transport"] .hero__link-label', 'Transport', 'Travel'],
+          ['#plan .section__head .eyebrow', 'Zapiszcie datę', 'Save the date'],
+          ['#plan-title', 'Świętujemy razem', 'Let’s celebrate together'],
+          ['#plan .section__intro', 'Odkryjcie szczegóły naszego spotkania na Sycylii.', 'Scratch the card to reveal the details of our celebration in Sicily.'],
+          ['#scratch-details', 'Szczegóły przyjęcia', 'Celebration details', 'aria-label'],
+          ['.scratch-card__eyebrow', 'Przyjęcie weselne', 'Wedding celebration'],
+          ['.scratch-card__date time', '5 czerwca 2027 · godz. 19:00', 'June 5, 2027 · 7:00 PM'],
+          ['.countdown__caption', 'Do przyjęcia pozostało', 'Countdown to the celebration'],
+          ['.countdown__label:nth-child(2)', 'dni', 'days'],
+          ['.countdown__unit:nth-child(2) .countdown__label', 'godzin', 'hours'],
+          ['.countdown__unit:nth-child(3) .countdown__label', 'minut', 'minutes'],
+          ['.countdown__unit:nth-child(4) .countdown__label', 'sekund', 'seconds'],
+          ['#countdown', 'Odliczanie do przyjęcia', 'Countdown to the celebration', 'aria-label'],
+          ['#scratch-hint', 'Przesuń palcem lub kursorem po karcie, by odkryć szczegóły.', 'Swipe or move your cursor across the card to reveal the details.'],
+          ['#scratch-reveal', 'Odkryj datę i miejsce', 'Reveal the date and place'],
+          ['#transport .section__head .eyebrow', 'Przyjedźcie wygodnie', 'Plan your journey'],
+          ['#transport-title', 'Transport na Sycylii', 'Getting around Sicily'],
+          ['#transport .section__intro', 'Kilka wskazówek, które ułatwią Wam podróż do Palermo i na przyjęcie.', 'A few tips to help you travel to Palermo and the celebration.'],
+          ['#transport .info-card:nth-child(1) h3', 'Loty na Sycylię', 'Flights to Sicily'],
+          ['#transport .info-card:nth-child(1) p', 'Bezpośrednie loty do Palermo oferują linie Ryanair i Wizz Air z lotniska Warszawa-Modlin. Ryanair realizuje także połączenia z Krakowa, Poznania, Wrocławia i Gdańska.', 'Ryanair and Wizz Air offer direct flights to Palermo from Warsaw Modlin. Ryanair also flies from Kraków, Poznań, Wrocław and Gdańsk.'],
+          ['#transport .info-card:nth-child(2) h3', 'Z lotniska do Palermo', 'From the airport to Palermo'],
+          ['#transport .info-card:nth-child(2) li:nth-child(1)', '<strong>Pociąg:</strong> bezpośrednio do centrum, podróż trwa około 30 minut.', '<strong>Train:</strong> direct service to the city centre takes about 30 minutes.', 'html'],
+          ['#transport .info-card:nth-child(2) li:nth-child(2)', '<strong>Taksówka:</strong> do centrum lub na miejsce przyjęcia jedzie około 30 minut, zależnie od ruchu. Warto zarezerwować przejazd wcześniej.', '<strong>Taxi:</strong> the ride to the city centre or celebration venue takes around 30 minutes, depending on traffic. Booking ahead is recommended.', 'html'],
+          ['#transport .info-card:nth-child(2) li:nth-child(3)', '<strong>Wynajem samochodu:</strong> wygodny do zwiedzania wyspy; parkowanie w centrum Palermo bywa wymagające.', '<strong>Car hire:</strong> a convenient way to explore the island; parking in central Palermo can be challenging.', 'html'],
+          ['#transport .info-card:nth-child(3) h3', 'Dojazd na przyjęcie', 'Getting to the celebration'],
+          ['#transport .info-card:nth-child(3) p', 'Miejsce przyjęcia znajduje się około 10 km od centrum Palermo, w pobliżu plaży Mondello. Najłatwiej dotrzeć tam taksówką lub za pośrednictwem aplikacji transportowej.', 'The venue is about 10 km from central Palermo, near Mondello beach. The easiest way to get there is by taxi or a ride-hailing app.'],
+          ['#transport .info-card:nth-child(4) h3', 'Powrót po weselu', 'Getting back after the wedding'],
+          ['#transport .info-card:nth-child(4) p', 'Po przyjęciu będzie można wrócić taksówką do Palermo. Planujemy również autobus dla chętnych, który około godz. 2:00 odwiezie gości do centrum miasta. Szczegóły potwierdzimy bliżej terminu.', 'You will be able to take a taxi back to Palermo after the celebration. We are also planning an optional bus to the city centre at around 2:00 AM. We will confirm details closer to the date.'],
+          ['#noclegi .section__head .eyebrow', 'Zaplanujcie pobyt', 'Plan your stay'],
+          ['#lodging-title', 'Noclegi', 'Accommodation'],
+          ['#noclegi .section__intro', 'Możecie zatrzymać się w okolicy plaży Mondello lub w centrum Palermo. Noclegi w centrum są zazwyczaj korzystniejsze cenowo; po okolicy można poruszać się komunikacją miejską, taksówką lub wynajętym samochodem bądź skuterem.', 'You can stay near Mondello beach or in central Palermo. Accommodation in the city centre is usually more affordable; you can get around by public transport, taxi, rental car or scooter.'],
+          ['#noclegi .info-card:nth-child(1) h3', 'Blisko miejsca przyjęcia', 'Near the venue'],
+          ['#noclegi .info-card:nth-child(2) h3', 'Hotele w Palermo', 'Hotels in Palermo'],
+          ['#noclegi .info-card:nth-child(2) p', 'Przejrzyjcie dostępne noclegi w mieście i wybierzcie lokalizację odpowiednią do Waszych planów.', 'Browse places to stay in the city and choose a location that suits your plans.'],
+          ['#noclegi .info-card:nth-child(2) > a', 'Szukaj hoteli na Booking.com ↗', 'Find hotels on Booking.com ↗'],
+          ['#noclegi .info-card:nth-child(3) h3', 'Mieszkania i domy', 'Apartments and homes'],
+          ['#noclegi .info-card:nth-child(3) p', 'Jeśli wolicie własną przestrzeń, sprawdźcie dostępne mieszkania i domy w Palermo.', 'If you would prefer your own space, browse apartments and homes in Palermo.'],
+          ['#noclegi .info-card:nth-child(3) > a', 'Szukaj na Airbnb ↗', 'Find stays on Airbnb ↗'],
+          ['#venue-locked .eyebrow', 'Sycylia czeka', 'Sicily is waiting'],
+          ['#venue-locked .section__title', 'Odkryjcie miejsce przyjęcia', 'Discover the celebration venue'],
+          ['#venue-locked .button', 'Sprawdź, kiedy i gdzie', 'See when and where'],
+          ['#venue-art img', 'Akwarelowa ilustracja przyjęcia nad morzem na Sycylii', 'Watercolour illustration of a seaside celebration in Sicily', 'alt'],
+          ['#venue-copy .venue-note', 'Strona miejsca: <a href="https://www.costaponente.it/" target="_blank" rel="noopener noreferrer">costaponente.it</a><br>Telefon: <a href="tel:+39091450427">+39 091 450427</a>', 'Venue website: <a href="https://www.costaponente.it/" target="_blank" rel="noopener noreferrer">costaponente.it</a><br>Phone: <a href="tel:+39091450427">+39 091 450427</a>', 'html'],
+          ['#venue-copy .venue__actions .button:first-child', 'Otwórz mapę <span aria-hidden="true">↗</span>', 'Open map <span aria-hidden="true">↗</span>', 'html'],
+          ['#venue-copy .venue__actions .button:last-child', 'Strona miejsca <span aria-hidden="true">↗</span>', 'Venue website <span aria-hidden="true">↗</span>', 'html'],
+          ['#wedding-details .section__head .eyebrow', 'Wspólne świętowanie', 'The celebration'],
+          ['#wedding-title', 'Plan przyjęcia', 'The schedule'],
+          ['#wedding-details .section__intro', 'Cieszymy się, że będziemy mogli przeżyć te chwile razem z Wami.', 'We are so looking forward to sharing these moments with you.'],
+          ['.event-timeline', 'Harmonogram przyjęcia', 'Celebration schedule', 'aria-label'],
+          ['.event-timeline__item:nth-child(1) .event-timeline__title', 'Ceremonia', 'Ceremony'],
+          ['.event-timeline__item:nth-child(2) .event-timeline__title', 'Aperitif', 'Aperitif'],
+          ['.event-timeline__item:nth-child(3) .event-timeline__title', 'Live cooking buffet', 'Live cooking buffet'],
+          ['.event-timeline__item:nth-child(4) .event-timeline__title', 'Pierwsze danie', 'First course'],
+          ['.event-timeline__item:nth-child(5) .event-timeline__title', 'Drugie danie', 'Second course'],
+          ['.event-timeline__item:nth-child(6) .event-timeline__title', 'Tort weselny', 'Wedding cake'],
+          ['.event-timeline__item:nth-child(7) .event-timeline__title', 'Zakończenie przyjęcia', 'Celebration ends'],
+          ['.wedding-note:nth-child(1) h3', 'Ubiór', 'What to wear'],
+          ['.wedding-note:nth-child(1) p', 'Przyjęcie odbędzie się częściowo na trawniku. Paniom polecamy wygodne obuwie lub stabilne obcasy — bardzo wysokie szpilki mogą być mniej komfortowe.', 'Part of the celebration will take place on a lawn. We recommend comfortable shoes or block heels, as very high heels may be less practical.'],
+          ['.wedding-note:nth-child(2) h3', 'Prezenty', 'Gifts'],
+          ['.wedding-note:nth-child(2) p', 'Wasza obecność jest dla nas najpiękniejszym prezentem. Ze względu na organizację wesela za granicą prosimy o niewręczanie prezentów rzeczowych, których nie będziemy mogli przewieźć do Polski. Jeśli zechcecie podarować nam coś od siebie, będzie nam miło, jeśli wesprzecie naszą podróż poślubną.', 'Having you with us is the greatest gift. As we are celebrating abroad, please do not bring physical gifts that we would not be able to take back to Poland. If you would like to give us something, a contribution towards our honeymoon would mean a lot.'],
+          ['#copy-iban', 'Kopiuj numer konta', 'Copy account number'],
+          ['#copy-iban', 'Skopiuj numer konta Revolut', 'Copy Revolut account number', 'aria-label'],
+          ['#galeria .section__head .eyebrow', 'Nasze sycylijskie chwile', 'Our Sicilian moments'],
+          ['#gallery-title', 'Do zobaczenia pod słońcem', 'See you under the Sicilian sun'],
+          ['#galeria .section__intro', 'Kilka wspólnych kadrów. Czekamy na Was na Sycylii.', 'A few moments together. We cannot wait to welcome you to Sicily.'],
+          ['.gallery__item:nth-child(1) img', 'Kasia i Michał podczas przejażdżki konnej', 'Kasia and Michał horse riding', 'alt'],
+          ['.gallery__item:nth-child(2) img', 'Kasia i Michał na niebieskiej Vespie', 'Kasia and Michał on a blue Vespa', 'alt'],
+          ['#kontakt .eyebrow', 'Wymieńmy się wiadomościami', 'Let’s keep in touch'],
+          ['#rsvp-title', 'Kontakt', 'Contact'],
+          ['#kontakt .rsvp > div > p:nth-of-type(2)', 'Dołączcie do naszych grup WhatsApp, by wymieniać się informacjami, wspólnie planować pobyt i poznać innych gości przed weselem.', 'Join our WhatsApp groups to share information, plan your stay and meet the other guests before the wedding.'],
+          ['.contact-groups', 'Grupy WhatsApp', 'WhatsApp groups', 'aria-label'],
+          ['.contact-group:nth-child(1) h3', 'Grupa w języku polskim', 'Polish-speaking group'],
+          ['.contact-group:nth-child(1) p', 'Link do grupy zostanie dodany, gdy będzie dostępny.', 'The group link will be added when it is available.'],
+          ['.contact-group:nth-child(2) h3', 'Grupa anglojęzyczna', 'English-speaking group'],
+          ['.contact-group:nth-child(2) p', 'Link do anglojęzycznej grupy zostanie dodany, gdy będzie dostępny.', 'The group link will be added when it is available.'],
+          ['.contact-rsvp-title', 'Potwierdźcie obecność', 'Please RSVP'],
+          ['.rsvp__deadline', 'Prosimy o potwierdzenie obecności do końca kwietnia 2027 roku.', 'Please RSVP by the end of April 2027.'],
+          ['.rsvp__hint', 'Wybierzcie kontakt. WhatsApp otworzy gotową wiadomość, którą można edytować przed wysłaniem.', 'Choose who to contact. WhatsApp will open a pre-filled message that you can edit before sending.'],
+          ['.rsvp__actions', 'Potwierdź obecność przez WhatsApp', 'RSVP via WhatsApp', 'aria-label'],
+          ['.rsvp__actions .button:first-child', 'Potwierdź · Kasia <span aria-hidden="true">↗</span>', 'RSVP · Kasia <span aria-hidden="true">↗</span>', 'html'],
+          ['.rsvp__actions .button:last-child', 'Potwierdź · Michał <span aria-hidden="true">↗</span>', 'RSVP · Michał <span aria-hidden="true">↗</span>', 'html'],
+          ['#footer-github-link', 'Profil MedinaBytes na GitHubie', 'MedinaBytes on GitHub', 'aria-label'],
+          ['.site-footer__top-link', 'Wróć na górę ↑', 'Back to top ↑']
+        ];
+        let currentLanguage = 'pl';
         let noticeTimer;
         let countdownTimer;
         const scratchContext = scratchCover.getContext('2d', { willReadFrequently: true });
         let isScratching = false;
         let previousPoint = null;
         let lastCoverageCheck = 0;
+
+        function applyLanguage(language, updateUrl = false) {
+          currentLanguage = language === 'en' ? 'en' : 'pl';
+          const english = currentLanguage === 'en';
+          document.documentElement.lang = currentLanguage;
+
+          for (const [selector, polish, englishText, mode] of translations) {
+            const element = document.querySelector(selector);
+            if (!element) continue;
+            const value = english ? englishText : polish;
+            if (mode === 'aria-label' || mode === 'alt') {
+              element.setAttribute(mode, value);
+            } else if (mode === 'html') {
+              element.innerHTML = value;
+            } else {
+              element.textContent = value;
+            }
+          }
+
+          document.title = english ? 'Kasia and Michał — we are getting married!' : 'Kasia i Michał — będzie wesele!';
+          document.querySelector('meta[name="description"]').content = english
+            ? 'Kasia and Michał invite you to celebrate their wedding in Sicily, with travel, accommodation and schedule information.'
+            : 'Zaproszenie Kasi i Michała na sycylijskie wesele, z informacjami o transporcie, noclegach i planie dnia.';
+          document.querySelector('meta[property="og:locale"]').content = english ? 'en_US' : 'pl_PL';
+          document.querySelector('meta[property="og:site_name"]').content = english ? 'Kasia and Michał — Sicily' : 'Kasia i Michał — Sycylia';
+          document.querySelector('meta[property="og:title"]').content = document.title;
+          document.querySelector('meta[name="twitter:title"]').content = document.title;
+          const socialDescription = english
+            ? 'Everything you need to know before celebrating together in Sicily.'
+            : 'Wszystko, co warto wiedzieć przed wspólnym świętowaniem na Sycylii.';
+          document.querySelector('meta[property="og:description"]').content = socialDescription;
+          document.querySelector('meta[name="twitter:description"]').content = socialDescription;
+
+          languageSwitch.textContent = english ? 'PL' : 'EN';
+          languageSwitch.setAttribute('lang', english ? 'pl' : 'en');
+          languageSwitch.setAttribute('aria-label', english ? 'Przełącz na język polski' : 'Switch to English');
+          languageSwitch.setAttribute('aria-pressed', String(english));
+          const menuToggle = document.getElementById('site-nav-toggle');
+          menuToggle.setAttribute('aria-label', english ? 'Open navigation menu' : 'Otwórz menu nawigacji');
+          menuToggle.querySelector('.site-nav-toggle__label').textContent = english ? 'Menu' : 'Menu';
+
+          const confirmation = english
+            ? [
+                'Hi Kasia, we would love to confirm our attendance at your wedding celebration on June 5, 2027 in Palermo. See you there!',
+                'Hi Michał, we would love to confirm our attendance at your wedding celebration on June 5, 2027 in Palermo. See you there!'
+              ]
+            : [
+                'Cześć Kasiu, potwierdzamy obecność na Waszym przyjęciu weselnym 5 czerwca 2027 r. w Palermo. Do zobaczenia!',
+                'Cześć Michale, potwierdzamy obecność na Waszym przyjęciu weselnym 5 czerwca 2027 r. w Palermo. Do zobaczenia!'
+              ];
+          document.querySelectorAll('.rsvp__actions a').forEach((link, index) => {
+            link.href = `${link.href.split('?')[0]}?text=${encodeURIComponent(confirmation[index])}`;
+          });
+
+          const eventData = document.querySelector('script[type="application/ld+json"]');
+          const event = JSON.parse(eventData.textContent);
+          event.name = english ? 'Kasia and Michał’s wedding celebration' : 'Przyjęcie weselne Kasi i Michała';
+          event.description = english
+            ? 'Kasia and Michał’s wedding celebration at Club Nautico Costa Ponente in Palermo.'
+            : 'Przyjęcie weselne Kasi i Michała w Club Nautico Costa Ponente w Palermo.';
+          eventData.textContent = JSON.stringify(event);
+
+          if (scratchContext && !scratchCard.classList.contains('is-revealed')) paintScratchCover();
+
+          if (updateUrl) {
+            const url = new URL(window.location.href);
+            if (english) url.searchParams.set('lang', 'en');
+            else url.searchParams.delete('lang');
+            window.history.replaceState({}, '', url);
+          }
+        }
+
+        const requestedLanguage = new URLSearchParams(window.location.search).get('lang');
+        applyLanguage(requestedLanguage === 'en' ? 'en' : 'pl');
+        languageSwitch.addEventListener('click', () => {
+          applyLanguage(currentLanguage === 'en' ? 'pl' : 'en', true);
+        });
+
+        const navToggle = document.getElementById('site-nav-toggle');
+        const siteNav = document.getElementById('site-nav');
+        function setNavigationOpen(open) {
+          navToggle.setAttribute('aria-expanded', String(open));
+          siteNav.classList.toggle('is-open', open);
+        }
+        navToggle.addEventListener('click', () => {
+          setNavigationOpen(navToggle.getAttribute('aria-expanded') !== 'true');
+        });
+        siteNav.addEventListener('click', (event) => {
+          if (event.target instanceof Element && event.target.closest('a')) setNavigationOpen(false);
+        });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+            setNavigationOpen(false);
+            navToggle.focus();
+          }
+        });
+        document.addEventListener('click', (event) => {
+          if (navToggle.getAttribute('aria-expanded') !== 'true') return;
+          if (event.target instanceof Node && !navToggle.contains(event.target) && !siteNav.contains(event.target)) setNavigationOpen(false);
+        });
 
         if (root.classList.contains('intro-pending')) {
           shell.inert = true;
@@ -2336,7 +2756,7 @@
           scratchContext.font = '600 11px "Segoe UI", Arial, sans-serif';
           scratchContext.textAlign = 'center';
           scratchContext.textBaseline = 'middle';
-          scratchContext.fillText('PRZESUŃ, BY ODKRYĆ', bounds.width / 2, bounds.height / 2);
+          scratchContext.fillText(currentLanguage === 'en' ? 'SCRATCH TO REVEAL' : 'PRZESUŃ, BY ODKRYĆ', bounds.width / 2, bounds.height / 2);
         }
 
         function revealScratchCard() {
@@ -2353,7 +2773,9 @@
           startCountdown();
           scratchReveal.setAttribute('aria-pressed', 'true');
           scratchReveal.hidden = true;
-          scratchHint.textContent = 'Szczegóły przyjęcia są już widoczne na karcie.';
+          scratchHint.textContent = currentLanguage === 'en'
+            ? 'The celebration details are now revealed on the card.'
+            : 'Szczegóły przyjęcia są już widoczne na karcie.';
           if (returnFocus) scratchDetails.focus();
         }
 
@@ -2372,7 +2794,7 @@
             document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
             if (remainingSeconds === 0) {
               window.clearInterval(countdownTimer);
-              countdown.setAttribute('aria-label', 'Przyjęcie już się rozpoczęło');
+              countdown.setAttribute('aria-label', currentLanguage === 'en' ? 'The celebration has started' : 'Przyjęcie już się rozpoczęło');
             }
           };
 
@@ -2507,10 +2929,12 @@
         copyIbanButton.addEventListener('click', async () => {
           try {
             await navigator.clipboard.writeText(document.getElementById('revolut-iban').textContent.trim());
-            showNotice('Numer konta skopiowany.');
+            showNotice(currentLanguage === 'en' ? 'Account number copied.' : 'Numer konta skopiowany.');
           } catch (error) {
             console.error('Nie udało się skopiować numeru konta Revolut.', error);
-            showNotice('Nie udało się skopiować numeru. Zaznacz go i skopiuj ręcznie.');
+            showNotice(currentLanguage === 'en'
+              ? 'Could not copy the number. Please select and copy it manually.'
+              : 'Nie udało się skopiować numeru. Zaznacz go i skopiuj ręcznie.');
           }
         });
 
@@ -2527,9 +2951,9 @@
             'UID:przyjecie-kasia-michal-2027@kasiamichal.pl',
             `DTSTAMP:${stamp}`,
             'DTSTART;TZID=Europe/Rome:20270605T190000',
-            'SUMMARY:Przyjęcie weselne Kasi i Michała',
+            `SUMMARY:${currentLanguage === 'en' ? 'Kasia and Michał’s wedding celebration' : 'Przyjęcie weselne Kasi i Michała'}`,
             'LOCATION:Club Nautico Costa Ponente\\, Via Giuseppe Pavone 91\\, 90151 Palermo PA\\, Italia',
-            'DESCRIPTION:Do zobaczenia na Sycylii!',
+            `DESCRIPTION:${currentLanguage === 'en' ? 'We cannot wait to celebrate with you in Sicily!' : 'Do zobaczenia na Sycylii!'}`,
             'END:VEVENT',
             'END:VCALENDAR',
             ''
@@ -2543,7 +2967,7 @@
           link.click();
           link.remove();
           window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-          showNotice('Kalendarz został pobrany.');
+          showNotice(currentLanguage === 'en' ? 'Your calendar invitation has been downloaded.' : 'Kalendarz został pobrany.');
         });
       })();
     </script>

@@ -1,15 +1,19 @@
 # Kasia i Michał — wedding invitation
 
-A standalone, Polish-language wedding invitation website for Kasia and Michał. It is a static site built with HTML, CSS, JavaScript, and locally stored artwork in `assets/`, maintained independently from the WeddingProject application.
+A standalone, Polish- and English-language wedding invitation website for Kasia and Michał. It is a static site built with HTML, CSS, JavaScript, and locally stored artwork in `assets/`, maintained independently from the WeddingProject application.
 
 ## What the site includes
 
 - Responsive invitation page, photo gallery, and Sicilian-inspired styling.
 - Animated envelope introduction and an interactive scratch-to-reveal card.
+- Polish/English language switch in the header; the selected language is reflected in the page URL as `?lang=en`.
+- Decorative Sicilian-inspired ticket frame surrounding the scratch-to-reveal card.
+- Sicilian tile and olive artwork framing the wedding, gallery, and contact sections.
 - Date, venue, address, map, calendar download, countdown, and schedule shown after the guest reveals the details.
 - Travel guidance, accommodation recommendations, dress guidance, and gift information.
 - WhatsApp RSVP links with pre-filled messages. Guests review and send the message themselves; the site does not send messages or collect RSVPs.
 - Copy-to-clipboard support for the Revolut account number.
+- A footer heart icon linking to the MedinaBytes GitHub profile.
 
 The site has no database, authentication, server functions, analytics, or required API keys. No build step is required.
 
@@ -22,6 +26,8 @@ python -m http.server 8765
 ```
 
 Open [http://localhost:8765/](http://localhost:8765/) in a browser. Stop the server with `Ctrl+C`.
+
+To preview the English version directly, open [http://localhost:8765/?lang=en](http://localhost:8765/?lang=en), or use the language switch in the header.
 
 ## Deploy to Vercel
 
@@ -73,4 +79,4 @@ The HTML contains page metadata, Open Graph/Twitter URLs, and event structured d
 
 ## Browser checks
 
-Before sharing a deployment, check the page at mobile and desktop widths. Verify the envelope intro and skip action, scratch interaction and reveal button, date/venue visibility, map and calendar links, WhatsApp RSVP links, and account-number copy action. The scratch reveal and clipboard action require a browser with JavaScript enabled; clipboard access may require HTTPS or localhost.
+Before sharing a deployment, check both language versions at mobile and desktop widths. Verify the envelope intro and skip action, scratch interaction and reveal button, date/venue visibility, map and calendar links, localized WhatsApp RSVP messages, and account-number copy action. The scratch reveal and clipboard action require a browser with JavaScript enabled; clipboard access may require HTTPS or localhost.
